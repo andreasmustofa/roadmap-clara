@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Jalan Karier Clara Putri Yusri Mayverra</title>
+    <p>by Andreas x Rohmi</p>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .career-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .tab-btn.active {
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            border-color: #fff;
+        }
+        
+        .career-content {
+            display: none;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .career-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #4CAF50, #2196F3, #FF9800);
+            border-radius: 2px;
+        }
+        
+        .phase {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .phase-header:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .phase-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-right: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .foundation { background: linear-gradient(135deg, #4CAF50, #45a049); }
+        .intermediate { background: linear-gradient(135deg, #2196F3, #1976d2); }
+        .advanced { background: linear-gradient(135deg, #FF9800, #f57c00); }
+        
+        .phase-title {
+            flex-grow: 1;
+        }
+        
+        .phase-title h3 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.4em;
+        }
+        
+        .phase-duration {
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .phase-content {
+            margin-left: 80px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #e0e0e0;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #007bff;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            background: #e3f2fd;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-category h4 {
+            color: #007bff;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .skill-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .resources-section {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .resource-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .resource-card h4 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .resource-link {
+            display: block;
+            color: #e3f2fd;
+            text-decoration: none;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .milestone-section {
+            margin-top: 30px;
+            background: #fff3e0;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .milestone-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .milestone-time {
+            font-weight: bold;
+            color: #ff9800;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .phase-content {
+                margin-left: 60px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Peta Jalan Pengembangan Karier</h1>
+        
+        <div class="career-tabs">
+            <button class="tab-btn active" data-target="uiux">🎨 UI/UX Designer</button>
+            <button class="tab-btn" data-target="pm">📱 Product Manager</button>
+            <button class="tab-btn" data-target="frontend">💻 Frontend Developer</button>
+        </div>
+
+        <!-- UI/UX Designer Content -->
+        <div id="uiux" class="career-content active">
+            <div class="timeline">
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon foundation">1</div>
+                        <div class="phase-title">
+                            <h3>Fondasi Dasar</h3>
+                            <div class="phase-duration">0-3 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Prinsip Desain</h4>
+                                <ul class="skill-list">
+                                    <li>Teori warna & tipografi</li>
+                                    <li>Hierarki visual & komposisi</li>
+                                    <li>Pedoman aksesibilitas (WCAG)</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Penguasaan Tools</h4>
+                                <ul class="skill-list">
+                                    <li>Figma advanced (komponen, varian)</li>
+                                    <li>Adobe XD atau Sketch</li>
+                                    <li>Principle/Framer untuk animasi</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Konsep UX Dasar</h4>
+                                <ul class="skill-list">
+                                    <li>User personas & journey mapping</li>
+                                    <li>Arsitektur informasi</li>
+                                    <li>Wireframing & prototyping</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon intermediate">2</div>
+                        <div class="phase-title">
+                            <h3>Tingkat Menengah</h3>
+                            <div class="phase-duration">3-8 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Riset Pengguna</h4>
+                                <ul class="skill-list">
+                                    <li>Teknik wawancara & survei</li>
+                                    <li>Metode usability testing</li>
+                                    <li>Analisis data & ekstraksi insight</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Keahlian Desain Lanjutan</h4>
+                                <ul class="skill-list">
+                                    <li>Design system & component library</li>
+                                    <li>Prinsip responsive design</li>
+                                    <li>Motion design & micro-interactions</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Kolaborasi Tim</h4>
+                                <ul class="skill-list">
+                                    <li>Handoff ke developer</li>
+                                    <li>Design critique & feedback</li>
+                                    <li>Komunikasi lintas fungsi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon advanced">3</div>
+                        <div class="phase-title">
+                            <h3>Tingkat Lanjutan</h3>
+                            <div class="phase-duration">8-18 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>UX Strategis</h4>
+                                <ul class="skill-list">
+                                    <li>Alignment dengan tujuan bisnis</li>
+                                    <li>A/B testing desain</li>
+                                    <li>Optimisasi konversi</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Spesialisasi</h4>
+                                <ul class="skill-list">
+                                    <li>Mobile app atau web spesialisasi</li>
+                                    <li>Voice UI atau emerging interfaces</li>
+                                    <li>Service design thinking</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Pengembangan Portfolio</h4>
+                                <ul class="skill-list">
+                                    <li>Case studies dengan impact terukur</li>
+                                    <li>Dokumentasi proses desain</li>
+                                    <li>Personal branding</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="milestone-section">
+                <h3>🎯 Target Pencapaian</h3>
+                <div class="milestone-item">
+                    <div class="milestone-time">3 Bulan:</div>
+                    Selesaikan proyek desain pertama & penguasaan Figma dasar
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-time">6 Bulan:</div>
+                    Lakukan user research & buat design system
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-time">12 Bulan:</div>
+                    Portfolio lengkap dengan 3-4 case studies komprehensif
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Manager Content -->
+        <div id="pm" class="career-content">
+            <div class="timeline">
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon foundation">1</div>
+                        <div class="phase-title">
+                            <h3>Fondasi Dasar</h3>
+                            <div class="phase-duration">0-4 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Fundamental Produk</h4>
+                                <ul class="skill-list">
+                                    <li>Pemahaman product lifecycle</li>
+                                    <li>Teknik riset pasar</li>
+                                    <li>Metode analisis kompetitor</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>User-Centric Thinking</h4>
+                                <ul class="skill-list">
+                                    <li>Jobs-to-be-done framework</li>
+                                    <li>Penulisan user story</li>
+                                    <li>Customer development interviews</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Analytics Dasar</h4>
+                                <ul class="skill-list">
+                                    <li>Setup & interpretasi Google Analytics</li>
+                                    <li>Identifikasi key metrics (KPIs)</li>
+                                    <li>Data-driven decision making</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon intermediate">2</div>
+                        <div class="phase-title">
+                            <h3>Tingkat Menengah</h3>
+                            <div class="phase-duration">4-10 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Pemahaman Teknis</h4>
+                                <ul class="skill-list">
+                                    <li>Pengetahuan coding dasar</li>
+                                    <li>Konsep API & database fundamental</li>
+                                    <li>Software development lifecycle</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Project Management</h4>
+                                <ul class="skill-list">
+                                    <li>Metodologi Agile/Scrum</li>
+                                    <li>Perencanaan roadmap & prioritas</li>
+                                    <li>Manajemen stakeholder</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Penguasaan Tools</h4>
+                                <ul class="skill-list">
+                                    <li>Jira/Asana untuk project tracking</li>
+                                    <li>Miro/FigJam untuk kolaborasi</li>
+                                    <li>Analytics tools (Mixpanel, Hotjar)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon advanced">3</div>
+                        <div class="phase-title">
+                            <h3>Tingkat Lanjutan</h3>
+                            <div class="phase-duration">10-24 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Strategic Skills</h4>
+                                <ul class="skill-list">
+                                    <li>Go-to-market strategy</li>
+                                    <li>Strategi pricing</li>
+                                    <li>Business model canvas</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Leadership</h4>
+                                <ul class="skill-list">
+                                    <li>Kepemimpinan tim lintas fungsi</li>
+                                    <li>Resolusi konflik</li>
+                                    <li>Komunikasi eksekutif</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Advanced Analytics</h4>
+                                <ul class="skill-list">
+                                    <li>Cohort analysis</li>
+                                    <li>Optimisasi funnel</li>
+                                    <li>Teknik growth hacking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="milestone-section">
+                <h3>🎯 Target Pencapaian</h3>
+                <div class="milestone-item">
+                    <div class="milestone-time">4 Bulan:</div>
+                    Pahami fundamental produk & buat PRD pertama
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-time">8 Bulan:</div>
+                    Kelola fitur produk kecil dari ideation ke launch
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-time">18 Bulan:</div>
+                    Pimpin proyek lintas fungsi dengan outcomes terukur
+                </div>
+            </div>
+        </div>
+
+        <!-- Frontend Developer Content -->
+        <div id="frontend" class="career-content">
+            <div class="timeline">
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon foundation">1</div>
+                        <div class="phase-title">
+                            <h3>Fondasi Dasar</h3>
+                            <div class="phase-duration">0-4 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Core Technologies</h4>
+                                <ul class="skill-list">
+                                    <li>HTML5 semantic elements</li>
+                                    <li>CSS3 (Flexbox, Grid, animations)</li>
+                                    <li>JavaScript ES6+ fundamentals</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Development Tools</h4>
+                                <ul class="skill-list">
+                                    <li>Git version control</li>
+                                    <li>VS Code setup & extensions</li>
+                                    <li>Browser developer tools</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Responsive Design</h4>
+                                <ul class="skill-list">
+                                    <li>Mobile-first approach</li>
+                                    <li>CSS frameworks (Bootstrap/Tailwind)</li>
+                                    <li>Cross-browser compatibility</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon intermediate">2</div>
+                        <div class="phase-title">
+                            <h3>Tingkat Menengah</h3>
+                            <div class="phase-duration">4-10 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>JavaScript Framework</h4>
+                                <ul class="skill-list">
+                                    <li>React.js (komponen, hooks, state)</li>
+                                    <li>Vue.js/Angular sebagai alternatif</li>
+                                    <li>Package managers (npm/yarn)</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Build Tools</h4>
+                                <ul class="skill-list">
+                                    <li>Webpack atau Vite</li>
+                                    <li>Babel untuk transpilation</li>
+                                    <li>CSS preprocessors (Sass/Less)</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>API Integration</h4>
+                                <ul class="skill-list">
+                                    <li>RESTful APIs consumption</li>
+                                    <li>Fetch/Axios untuk HTTP requests</li>
+                                    <li>Async/await patterns</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase-header">
+                        <div class="phase-icon advanced">3</div>
+                        <div class="phase-title">
+                            <h3>Tingkat Lanjutan</h3>
+                            <div class="phase-duration">10-18 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Advanced React</h4>
+                                <ul class="skill-list">
+                                    <li>State management (Redux/Zustand)</li>
+                                    <li>Testing (Jest, React Testing Library)</li>
+                                    <li>Performance optimization</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Full-Stack Basics</h4>
+                                <ul class="skill-list">
+                                    <li>Node.js fundamentals</li>
+                                    <li>Database interactions</li>
+                                    <li>Authentication implementation</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Professional Development</h4>
+                                <ul class="skill-list">
+                                    <li>Code review best practices</li>
+                                    <li>CI/CD pipeline understanding</li>
+                                    <li>Performance monitoring tools</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="milestone-section">
+                <h3>🎯 Target Pencapaian</h3>
+                <div class="milestone-item">
+                    <div class="milestone-time">4 Bulan:</div>
+                    Buat website responsive dengan HTML/CSS/JS
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-time">8 Bulan:</div>
+                    Bangun web app interaktif dengan React
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-time">15 Bulan:</div>
+                    Kontribusi open source atau deploy full-stack app
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="resources-section">
+            <h3>📚 Sumber Pembelajaran</h3>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>Gratis</h4>
+                    <a href="#" class="resource-link">Coursera - Google UX Design</a>
+                    <a href="#" class="resource-link">freeCodeCamp - Frontend</a>
+                    <a href="#" class="resource-link">YouTube - The Futur</a>
+                    <a href="#" class="resource-link">Medium - Design Better</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Berbayar</h4>
+                    <a href="#" class="resource-link">Udemy - Kursus Komprehensif</a>
+                    <a href="#" class="resource-link">Interaction Design Foundation</a>
+                    <a href="#" class="resource-link">Frontend Masters</a>
+                    <a href="#" class="resource-link">MasterClass - Design</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Platform Praktik</h4>
+                    <a href="#" class="resource-link">Daily UI Challenges</a>
+                    <a href="#" class="resource-link">CodePen Projects</a>
+                    <a href="#" class="resource-link">GitHub Portfolio</a>
+                    <a href="#" class="resource-link">Dribbble Inspiration</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const careerContents = document.querySelectorAll('.career-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-target');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                careerContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // Phase header click functionality for better UX
+        const phaseHeaders = document.querySelectorAll('.phase-header');
+        phaseHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                if (content.style.display === 'none') {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                }
+            });
+        });
+
+        // Add smooth scrolling animation when switching tabs
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.8s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+
+        // Add hover effects to skill categories
+        const skillCategories = document.querySelectorAll('.skill-category');
+        skillCategories.forEach(category => {
+            category.addEventListener('mouseenter', () => {
+                category.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            category.addEventListener('mouseleave', () => {
+                category.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
